@@ -20,7 +20,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -104,7 +104,6 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    //NSLog(@"Response: %@", response);
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)d {
@@ -148,7 +147,7 @@
     }
     self.schoolLabel.text = school;
     self.rosterLabel.text = [NSString stringWithFormat:@"%@ Roster", sport];
-    self.roster = playersTemp; //set @property (nonatomic, copy) NSArray *jobsArray; in the .h
+    self.roster = playersTemp;
     [self.rosterTable reloadData]; //optional only if the data is loaded after the view
 }
 
@@ -157,7 +156,6 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    //NSLog(@"Connection: %@", connection);
 }
 
 @end

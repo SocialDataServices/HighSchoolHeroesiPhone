@@ -22,7 +22,7 @@ static const NSString *theURL = @"http://www.sodaservices.com/HighSchoolHeroes/p
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -110,7 +110,6 @@ static const NSString *theURL = @"http://www.sodaservices.com/HighSchoolHeroes/p
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    //NSLog(@"Response: %@", response);
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)d {
@@ -146,7 +145,7 @@ static const NSString *theURL = @"http://www.sodaservices.com/HighSchoolHeroes/p
     
     self.schoolLabel.text = school;
     self.scheduleLabel.text = [NSString stringWithFormat:@"%@ Schedule", sport];
-    self.schedule = gamesTemp; //set @property (nonatomic, copy) NSArray *jobsArray; in the .h
+    self.schedule = gamesTemp;
     [self.scheduleTable reloadData]; //optional only if the data is loaded after the view
 }
 
@@ -155,7 +154,6 @@ static const NSString *theURL = @"http://www.sodaservices.com/HighSchoolHeroes/p
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    //NSLog(@"Connection: %@", connection);
 }
 
 @end
