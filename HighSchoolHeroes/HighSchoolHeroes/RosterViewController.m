@@ -113,12 +113,12 @@
     NSError *error = nil;
     NSArray *players = [NSJSONSerialization JSONObjectWithData:d options:kNilOptions error:&error];
     
-    if (error != nil) {
-        NSLog(@"Error parsing JSON.");
-    }
-    else {
-        NSLog(@"Array: %@", players);
-    }
+//    if (error != nil) {
+//        NSLog(@"Error parsing JSON.");
+//    }
+//    else {
+//        NSLog(@"Array: %@", players);
+//    }
     
     NSString *school;
     NSString *sport;
