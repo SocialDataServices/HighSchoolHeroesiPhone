@@ -1,0 +1,515 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		253E7C5A1889E114006EB1CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253E7C591889E114006EB1CF /* Foundation.framework */; };
+		253E7C5C1889E114006EB1CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253E7C5B1889E114006EB1CF /* CoreGraphics.framework */; };
+		253E7C5E1889E114006EB1CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253E7C5D1889E114006EB1CF /* UIKit.framework */; };
+		253E7C641889E114006EB1CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 253E7C621889E114006EB1CF /* InfoPlist.strings */; };
+		253E7C661889E114006EB1CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 253E7C651889E114006EB1CF /* main.m */; };
+		253E7C6A1889E114006EB1CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 253E7C691889E114006EB1CF /* AppDelegate.m */; };
+		253E7C6D1889E114006EB1CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 253E7C6B1889E114006EB1CF /* Main.storyboard */; };
+		253E7C751889E114006EB1CF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 253E7C741889E114006EB1CF /* Images.xcassets */; };
+		253E7C7C1889E114006EB1CF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253E7C7B1889E114006EB1CF /* XCTest.framework */; };
+		253E7C7D1889E114006EB1CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253E7C591889E114006EB1CF /* Foundation.framework */; };
+		253E7C7E1889E114006EB1CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253E7C5D1889E114006EB1CF /* UIKit.framework */; };
+		253E7C861889E114006EB1CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 253E7C841889E114006EB1CF /* InfoPlist.strings */; };
+		253E7C881889E114006EB1CF /* HighSchoolHeroesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 253E7C871889E114006EB1CF /* HighSchoolHeroesTests.m */; };
+		2558443A188CBB84007BDD45 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25584439188CBB84007BDD45 /* ScheduleViewController.m */; };
+		2558443D188CC058007BDD45 /* RosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2558443C188CC058007BDD45 /* RosterViewController.m */; };
+		25584440188CC49B007BDD45 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2558443F188CC49B007BDD45 /* PlayerCell.m */; };
+		25584443188CC691007BDD45 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 25584442188CC691007BDD45 /* Player.m */; };
+		255FDE8B1889EE0800F6F834 /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 255FDE8A1889EE0800F6F834 /* GameCell.m */; };
+		255FDE8F1889EF7300F6F834 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 255FDE8E1889EF7300F6F834 /* Game.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		253E7C7F1889E114006EB1CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 253E7C4E1889E114006EB1CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 253E7C551889E114006EB1CF;
+			remoteInfo = HighSchoolHeroes;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		253E7C561889E114006EB1CF /* HighSchoolHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HighSchoolHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		253E7C591889E114006EB1CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		253E7C5B1889E114006EB1CF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		253E7C5D1889E114006EB1CF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		253E7C611889E114006EB1CF /* HighSchoolHeroes-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HighSchoolHeroes-Info.plist"; sourceTree = "<group>"; };
+		253E7C631889E114006EB1CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		253E7C651889E114006EB1CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		253E7C671889E114006EB1CF /* HighSchoolHeroes-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HighSchoolHeroes-Prefix.pch"; sourceTree = "<group>"; };
+		253E7C681889E114006EB1CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		253E7C691889E114006EB1CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		253E7C6C1889E114006EB1CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		253E7C741889E114006EB1CF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		253E7C7A1889E114006EB1CF /* HighSchoolHeroesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HighSchoolHeroesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		253E7C7B1889E114006EB1CF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		253E7C831889E114006EB1CF /* HighSchoolHeroesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HighSchoolHeroesTests-Info.plist"; sourceTree = "<group>"; };
+		253E7C851889E114006EB1CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		253E7C871889E114006EB1CF /* HighSchoolHeroesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HighSchoolHeroesTests.m; sourceTree = "<group>"; };
+		25584438188CBB84007BDD45 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
+		25584439188CBB84007BDD45 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
+		2558443B188CC058007BDD45 /* RosterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RosterViewController.h; sourceTree = "<group>"; };
+		2558443C188CC058007BDD45 /* RosterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RosterViewController.m; sourceTree = "<group>"; };
+		2558443E188CC49B007BDD45 /* PlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerCell.h; sourceTree = "<group>"; };
+		2558443F188CC49B007BDD45 /* PlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerCell.m; sourceTree = "<group>"; };
+		25584441188CC691007BDD45 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Model/Player.h; sourceTree = "<group>"; };
+		25584442188CC691007BDD45 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Model/Player.m; sourceTree = "<group>"; };
+		255FDE891889EE0800F6F834 /* GameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCell.h; sourceTree = "<group>"; };
+		255FDE8A1889EE0800F6F834 /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCell.m; sourceTree = "<group>"; };
+		255FDE8D1889EF7300F6F834 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = Model/Game.h; sourceTree = "<group>"; };
+		255FDE8E1889EF7300F6F834 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = Model/Game.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		253E7C531889E114006EB1CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				253E7C5C1889E114006EB1CF /* CoreGraphics.framework in Frameworks */,
+				253E7C5E1889E114006EB1CF /* UIKit.framework in Frameworks */,
+				253E7C5A1889E114006EB1CF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		253E7C771889E114006EB1CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				253E7C7C1889E114006EB1CF /* XCTest.framework in Frameworks */,
+				253E7C7E1889E114006EB1CF /* UIKit.framework in Frameworks */,
+				253E7C7D1889E114006EB1CF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		253E7C4D1889E114006EB1CF = {
+			isa = PBXGroup;
+			children = (
+				253E7C5F1889E114006EB1CF /* HighSchoolHeroes */,
+				253E7C811889E114006EB1CF /* HighSchoolHeroesTests */,
+				253E7C581889E114006EB1CF /* Frameworks */,
+				253E7C571889E114006EB1CF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		253E7C571889E114006EB1CF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				253E7C561889E114006EB1CF /* HighSchoolHeroes.app */,
+				253E7C7A1889E114006EB1CF /* HighSchoolHeroesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		253E7C581889E114006EB1CF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				253E7C591889E114006EB1CF /* Foundation.framework */,
+				253E7C5B1889E114006EB1CF /* CoreGraphics.framework */,
+				253E7C5D1889E114006EB1CF /* UIKit.framework */,
+				253E7C7B1889E114006EB1CF /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		253E7C5F1889E114006EB1CF /* HighSchoolHeroes */ = {
+			isa = PBXGroup;
+			children = (
+				255FDE8C1889EF4300F6F834 /* Model */,
+				253E7C681889E114006EB1CF /* AppDelegate.h */,
+				253E7C691889E114006EB1CF /* AppDelegate.m */,
+				253E7C6B1889E114006EB1CF /* Main.storyboard */,
+				2558443E188CC49B007BDD45 /* PlayerCell.h */,
+				2558443F188CC49B007BDD45 /* PlayerCell.m */,
+				2558443B188CC058007BDD45 /* RosterViewController.h */,
+				2558443C188CC058007BDD45 /* RosterViewController.m */,
+				25584438188CBB84007BDD45 /* ScheduleViewController.h */,
+				25584439188CBB84007BDD45 /* ScheduleViewController.m */,
+				255FDE891889EE0800F6F834 /* GameCell.h */,
+				255FDE8A1889EE0800F6F834 /* GameCell.m */,
+				253E7C741889E114006EB1CF /* Images.xcassets */,
+				253E7C601889E114006EB1CF /* Supporting Files */,
+			);
+			path = HighSchoolHeroes;
+			sourceTree = "<group>";
+		};
+		253E7C601889E114006EB1CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				253E7C611889E114006EB1CF /* HighSchoolHeroes-Info.plist */,
+				253E7C621889E114006EB1CF /* InfoPlist.strings */,
+				253E7C651889E114006EB1CF /* main.m */,
+				253E7C671889E114006EB1CF /* HighSchoolHeroes-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		253E7C811889E114006EB1CF /* HighSchoolHeroesTests */ = {
+			isa = PBXGroup;
+			children = (
+				253E7C871889E114006EB1CF /* HighSchoolHeroesTests.m */,
+				253E7C821889E114006EB1CF /* Supporting Files */,
+			);
+			path = HighSchoolHeroesTests;
+			sourceTree = "<group>";
+		};
+		253E7C821889E114006EB1CF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				253E7C831889E114006EB1CF /* HighSchoolHeroesTests-Info.plist */,
+				253E7C841889E114006EB1CF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		255FDE8C1889EF4300F6F834 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				25584441188CC691007BDD45 /* Player.h */,
+				25584442188CC691007BDD45 /* Player.m */,
+				255FDE8D1889EF7300F6F834 /* Game.h */,
+				255FDE8E1889EF7300F6F834 /* Game.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		253E7C551889E114006EB1CF /* HighSchoolHeroes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 253E7C8B1889E114006EB1CF /* Build configuration list for PBXNativeTarget "HighSchoolHeroes" */;
+			buildPhases = (
+				253E7C521889E114006EB1CF /* Sources */,
+				253E7C531889E114006EB1CF /* Frameworks */,
+				253E7C541889E114006EB1CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HighSchoolHeroes;
+			productName = HighSchoolHeroes;
+			productReference = 253E7C561889E114006EB1CF /* HighSchoolHeroes.app */;
+			productType = "com.apple.product-type.application";
+		};
+		253E7C791889E114006EB1CF /* HighSchoolHeroesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 253E7C8E1889E114006EB1CF /* Build configuration list for PBXNativeTarget "HighSchoolHeroesTests" */;
+			buildPhases = (
+				253E7C761889E114006EB1CF /* Sources */,
+				253E7C771889E114006EB1CF /* Frameworks */,
+				253E7C781889E114006EB1CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				253E7C801889E114006EB1CF /* PBXTargetDependency */,
+			);
+			name = HighSchoolHeroesTests;
+			productName = HighSchoolHeroesTests;
+			productReference = 253E7C7A1889E114006EB1CF /* HighSchoolHeroesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		253E7C4E1889E114006EB1CF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Randy Collier";
+				TargetAttributes = {
+					253E7C791889E114006EB1CF = {
+						TestTargetID = 253E7C551889E114006EB1CF;
+					};
+				};
+			};
+			buildConfigurationList = 253E7C511889E114006EB1CF /* Build configuration list for PBXProject "HighSchoolHeroes" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 253E7C4D1889E114006EB1CF;
+			productRefGroup = 253E7C571889E114006EB1CF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				253E7C551889E114006EB1CF /* HighSchoolHeroes */,
+				253E7C791889E114006EB1CF /* HighSchoolHeroesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		253E7C541889E114006EB1CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				253E7C751889E114006EB1CF /* Images.xcassets in Resources */,
+				253E7C641889E114006EB1CF /* InfoPlist.strings in Resources */,
+				253E7C6D1889E114006EB1CF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		253E7C781889E114006EB1CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				253E7C861889E114006EB1CF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		253E7C521889E114006EB1CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25584443188CC691007BDD45 /* Player.m in Sources */,
+				255FDE8B1889EE0800F6F834 /* GameCell.m in Sources */,
+				25584440188CC49B007BDD45 /* PlayerCell.m in Sources */,
+				253E7C6A1889E114006EB1CF /* AppDelegate.m in Sources */,
+				2558443A188CBB84007BDD45 /* ScheduleViewController.m in Sources */,
+				2558443D188CC058007BDD45 /* RosterViewController.m in Sources */,
+				255FDE8F1889EF7300F6F834 /* Game.m in Sources */,
+				253E7C661889E114006EB1CF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		253E7C761889E114006EB1CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				253E7C881889E114006EB1CF /* HighSchoolHeroesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		253E7C801889E114006EB1CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 253E7C551889E114006EB1CF /* HighSchoolHeroes */;
+			targetProxy = 253E7C7F1889E114006EB1CF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		253E7C621889E114006EB1CF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				253E7C631889E114006EB1CF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		253E7C6B1889E114006EB1CF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				253E7C6C1889E114006EB1CF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		253E7C841889E114006EB1CF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				253E7C851889E114006EB1CF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		253E7C891889E114006EB1CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		253E7C8A1889E114006EB1CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		253E7C8C1889E114006EB1CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HighSchoolHeroes/HighSchoolHeroes-Prefix.pch";
+				INFOPLIST_FILE = "HighSchoolHeroes/HighSchoolHeroes-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		253E7C8D1889E114006EB1CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HighSchoolHeroes/HighSchoolHeroes-Prefix.pch";
+				INFOPLIST_FILE = "HighSchoolHeroes/HighSchoolHeroes-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		253E7C8F1889E114006EB1CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HighSchoolHeroes.app/HighSchoolHeroes";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HighSchoolHeroes/HighSchoolHeroes-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HighSchoolHeroesTests/HighSchoolHeroesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		253E7C901889E114006EB1CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HighSchoolHeroes.app/HighSchoolHeroes";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HighSchoolHeroes/HighSchoolHeroes-Prefix.pch";
+				INFOPLIST_FILE = "HighSchoolHeroesTests/HighSchoolHeroesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		253E7C511889E114006EB1CF /* Build configuration list for PBXProject "HighSchoolHeroes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				253E7C891889E114006EB1CF /* Debug */,
+				253E7C8A1889E114006EB1CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		253E7C8B1889E114006EB1CF /* Build configuration list for PBXNativeTarget "HighSchoolHeroes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				253E7C8C1889E114006EB1CF /* Debug */,
+				253E7C8D1889E114006EB1CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		253E7C8E1889E114006EB1CF /* Build configuration list for PBXNativeTarget "HighSchoolHeroesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				253E7C8F1889E114006EB1CF /* Debug */,
+				253E7C901889E114006EB1CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 253E7C4E1889E114006EB1CF /* Project object */;
+}
