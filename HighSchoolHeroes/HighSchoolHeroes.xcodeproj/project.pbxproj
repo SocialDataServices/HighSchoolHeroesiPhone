@@ -128,17 +128,17 @@
 			isa = PBXGroup;
 			children = (
 				255FDE8C1889EF4300F6F834 /* Model */,
+				2558443E188CC49B007BDD45 /* PlayerCell.h */,
+				2558443F188CC49B007BDD45 /* PlayerCell.m */,
+				255FDE891889EE0800F6F834 /* GameCell.h */,
+				255FDE8A1889EE0800F6F834 /* GameCell.m */,
 				253E7C681889E114006EB1CF /* AppDelegate.h */,
 				253E7C691889E114006EB1CF /* AppDelegate.m */,
 				253E7C6B1889E114006EB1CF /* Main.storyboard */,
-				2558443E188CC49B007BDD45 /* PlayerCell.h */,
-				2558443F188CC49B007BDD45 /* PlayerCell.m */,
 				2558443B188CC058007BDD45 /* RosterViewController.h */,
 				2558443C188CC058007BDD45 /* RosterViewController.m */,
 				25584438188CBB84007BDD45 /* ScheduleViewController.h */,
 				25584439188CBB84007BDD45 /* ScheduleViewController.m */,
-				255FDE891889EE0800F6F834 /* GameCell.h */,
-				255FDE8A1889EE0800F6F834 /* GameCell.m */,
 				253E7C741889E114006EB1CF /* Images.xcassets */,
 				253E7C601889E114006EB1CF /* Supporting Files */,
 			);
