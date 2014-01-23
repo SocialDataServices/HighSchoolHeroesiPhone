@@ -59,8 +59,6 @@ static const NSString *theURL = @"http://www.sodaservices.com/HighSchoolHeroes/p
 //    Game *game10 = [[Game alloc] initOnDate:@"2013-11-01" AgainstOpponent:@"Clarksdale" WithScore:@"34-85" AtLocation:@"Home"];
 //    Game *game11 = [[Game alloc] initOnDate:@"2013-11-16" AgainstOpponent:@"Clinton" WithScore:@"6-2" AtLocation:@"Away"];
 //    self.schedule = [NSArray arrayWithObjects:game1, game2, game3, game4, game5, game6, game7, game8, game9, game10, game11, nil];
-    self.schoolLabel.text = @"Oxford High School";
-    self.scheduleLabel.text = @"Football Schedule";
 }
 
 - (void)didReceiveMemoryWarning
@@ -154,6 +152,28 @@ static const NSString *theURL = @"http://www.sodaservices.com/HighSchoolHeroes/p
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 21)];
+    view.backgroundColor = [UIColor whiteColor];
+    
+    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(20,0,80,21)];
+    dateLabel.text = @"Date";
+    dateLabel.textAlignment = NSTextAlignmentLeft;
+    UILabel *opponentLabel = [[UILabel alloc] initWithFrame:CGRectMake(100,0,130,21)];
+    opponentLabel.text = @"Opponent";
+    opponentLabel.textAlignment = NSTextAlignmentCenter;
+    UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(230,0,70,21)];
+    scoreLabel.text = @"Score";
+    scoreLabel.textAlignment = NSTextAlignmentRight;
+    
+    [view addSubview:dateLabel];
+    [view addSubview:opponentLabel];
+    [view addSubview:scoreLabel];
+    
+    return view;
 }
 
 @end

@@ -31,7 +31,7 @@
     
     self.roster = [[NSArray alloc] init];
     
-    self.school = @"Lafayette County High School";
+    self.school = @"Oxford High School";
     self.sport = @"Football";
     self.sex = @"0";
     
@@ -156,6 +156,41 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 21)];
+    view.backgroundColor = [UIColor whiteColor];
+    view.userInteractionEnabled = YES;
+    
+    UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(20,0,15,21)];
+    numberLabel.text = @"#";
+    numberLabel.textAlignment = NSTextAlignmentLeft;
+    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(42,0,90,21)];
+    nameLabel.text = @"Name";
+    nameLabel.textAlignment = NSTextAlignmentLeft;
+    UILabel *yearLabel = [[UILabel alloc] initWithFrame:CGRectMake(132,0,40,21)];
+    yearLabel.text = @"Year";
+    yearLabel.textAlignment = NSTextAlignmentLeft;
+    UILabel *heightLabel = [[UILabel alloc] initWithFrame:CGRectMake(190,0,30,21)];
+    heightLabel.text = @"Ht.";
+    heightLabel.textAlignment = NSTextAlignmentLeft;
+    UILabel *weightLabel = [[UILabel alloc] initWithFrame:CGRectMake(227,0,30,21)];
+    weightLabel.text = @"Wt.";
+    weightLabel.textAlignment = NSTextAlignmentLeft;
+    UILabel *positionLabel = [[UILabel alloc] initWithFrame:CGRectMake(263,0,30,21)];
+    positionLabel.text = @"Pos";
+    positionLabel.textAlignment = NSTextAlignmentLeft;
+    
+    [view addSubview:numberLabel];
+    [view addSubview:nameLabel];
+    [view addSubview:yearLabel];
+    [view addSubview:heightLabel];
+    [view addSubview:weightLabel];
+    [view addSubview:positionLabel];
+    
+    return view;
 }
 
 @end
