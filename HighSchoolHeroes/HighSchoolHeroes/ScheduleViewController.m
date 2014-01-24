@@ -10,7 +10,11 @@
 #import "GameCell.h"
 #import "ScheduleViewController.h"
 
-@interface ScheduleViewController ()
+@interface ScheduleViewController () {
+    
+    UIActivityIndicatorView *indicator;
+    
+}
 
 @end
 
@@ -36,6 +40,14 @@ static const NSString *theURL = @"http://www.sodaservices.com/HighSchoolHeroes/p
     self.school = @"Oxford High School";
     self.sport = @"Football";
     self.sex = @"0";
+    
+    indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
+    indicator.center = self.view.center;
+    [self.view addSubview:indicator];
+    [indicator bringSubviewToFront:self.view];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
+    [indicator startAnimating];
     
     NSURL *authUrl = [[NSURL alloc] initWithString:@"http://www.sodaservices.com/HighSchoolHeroes/php/getSchedule.php"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:authUrl];
@@ -112,7 +124,6 @@ static const NSString *theURL = @"http://www.sodaservices.com/HighSchoolHeroes/p
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)d {
     
-    
     NSError *error = nil;
     NSArray *games = [NSJSONSerialization JSONObjectWithData:d options:kNilOptions error:&error];
 //    
@@ -144,6 +155,7 @@ static const NSString *theURL = @"http://www.sodaservices.com/HighSchoolHeroes/p
     self.schoolLabel.text = school;
     self.scheduleLabel.text = [NSString stringWithFormat:@"%@ Schedule", sport];
     self.schedule = gamesTemp;
+    [indicator stopAnimating];
     [self.scheduleTable reloadData]; //optional only if the data is loaded after the view
 }
 

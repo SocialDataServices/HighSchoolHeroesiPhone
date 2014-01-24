@@ -10,7 +10,11 @@
 #import "Player.h"
 #import "RosterViewController.h"
 
-@interface RosterViewController ()
+@interface RosterViewController () {
+    
+    UIActivityIndicatorView *indicator;
+    
+}
 
 @end
 
@@ -34,6 +38,14 @@
     self.school = @"Oxford High School";
     self.sport = @"Football";
     self.sex = @"0";
+    
+    indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
+    indicator.center = self.view.center;
+    [self.view addSubview:indicator];
+    [indicator bringSubviewToFront:self.view];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
+    [indicator startAnimating];
     
     NSURL *authUrl = [[NSURL alloc] initWithString:@"http://www.sodaservices.com/HighSchoolHeroes/php/getRoster.php"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:authUrl];
@@ -148,6 +160,7 @@
     self.schoolLabel.text = school;
     self.rosterLabel.text = [NSString stringWithFormat:@"%@ Roster", sport];
     self.roster = playersTemp;
+    [indicator stopAnimating];
     [self.rosterTable reloadData]; //optional only if the data is loaded after the view
 }
 
