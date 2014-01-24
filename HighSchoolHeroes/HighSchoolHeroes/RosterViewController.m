@@ -13,7 +13,13 @@
 @interface RosterViewController () {
     
     UIActivityIndicatorView *indicator;
-    
+    NSArray *players;
+    BOOL numberPressed;
+    BOOL namePressed;
+    BOOL yearPressed;
+    BOOL heightPressed;
+    BOOL weightPressed;
+    BOOL positionPressed;
 }
 
 @end
@@ -33,12 +39,6 @@
 {
     [super viewDidLoad];
     
-    self.roster = [[NSArray alloc] init];
-    
-    self.school = @"Oxford High School";
-    self.sport = @"Football";
-    self.sex = @"0";
-    
     indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     indicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
     indicator.center = self.view.center;
@@ -46,6 +46,19 @@
     [indicator bringSubviewToFront:self.view];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
     [indicator startAnimating];
+    
+    self.roster = [[NSArray alloc] init];
+    
+    self.school = @"Oxford High School";
+    self.sport = @"Football";
+    self.sex = @"0";
+    
+    numberPressed = FALSE;
+    namePressed = FALSE;
+    yearPressed = FALSE;
+    heightPressed = FALSE;
+    weightPressed = FALSE;
+    positionPressed = FALSE;
     
     NSURL *authUrl = [[NSURL alloc] initWithString:@"http://www.sodaservices.com/HighSchoolHeroes/php/getRoster.php"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:authUrl];
@@ -122,7 +135,7 @@
     
     
     NSError *error = nil;
-    NSArray *players = [NSJSONSerialization JSONObjectWithData:d options:kNilOptions error:&error];
+    players = [NSJSONSerialization JSONObjectWithData:d options:kNilOptions error:&error];
     
 //    if (error != nil) {
 //        NSLog(@"Error parsing JSON.");
@@ -130,7 +143,90 @@
 //    else {
 //        NSLog(@"Array: %@", players);
 //    }
+    [self populateTable];
     
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    NSLog(@"Error: %@", error);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 21)];
+    view.backgroundColor = [UIColor whiteColor];
+    view.userInteractionEnabled = YES;
+    
+//    UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(20,0,15,21)];
+//    numberLabel.text = @"#";
+//    numberLabel.textAlignment = NSTextAlignmentLeft;
+    UIButton *number = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    number.frame = CGRectMake(20, 0, 15, 21);
+    [number setTitle:@"#" forState:UIControlStateNormal];
+    [number setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    number.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [number addTarget:self action:@selector(sortPlayersByNumber) forControlEvents:UIControlEventTouchDown];
+//    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(42,0,90,21)];
+//    nameLabel.text = @"Name";
+//    nameLabel.textAlignment = NSTextAlignmentLeft;
+    UIButton *name = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    name.frame = CGRectMake(42, 0, 90, 21);
+    [name setTitle:@"Name" forState:UIControlStateNormal];
+    [name setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    name.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [name addTarget:self action:@selector(sortPlayersByName) forControlEvents:UIControlEventTouchDown];
+//    UILabel *yearLabel = [[UILabel alloc] initWithFrame:CGRectMake(132,0,40,21)];
+//    yearLabel.text = @"Year";
+//    yearLabel.textAlignment = NSTextAlignmentLeft;
+    UIButton *year = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    year.frame = CGRectMake(132, 0, 40, 21);
+    [year setTitle:@"Year" forState:UIControlStateNormal];
+    [year setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    year.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [year addTarget:self action:@selector(sortPlayersByYear) forControlEvents:UIControlEventTouchDown];
+//    UILabel *heightLabel = [[UILabel alloc] initWithFrame:CGRectMake(190,0,30,21)];
+//    heightLabel.text = @"Ht.";
+//    heightLabel.textAlignment = NSTextAlignmentLeft;
+    UIButton *height = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    height.frame = CGRectMake(190, 0, 30, 21);
+    [height setTitle:@"Ht." forState:UIControlStateNormal];
+    [height setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    height.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [height addTarget:self action:@selector(sortPlayersByHeight) forControlEvents:UIControlEventTouchDown];
+//    UILabel *weightLabel = [[UILabel alloc] initWithFrame:CGRectMake(227,0,30,21)];
+//    weightLabel.text = @"Wt.";
+//    weightLabel.textAlignment = NSTextAlignmentLeft;
+    UIButton *weight = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    weight.frame = CGRectMake(227, 0, 30, 21);
+    [weight setTitle:@"Wt." forState:UIControlStateNormal];
+    [weight setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    weight.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [weight addTarget:self action:@selector(sortPlayersByWeight) forControlEvents:UIControlEventTouchDown];
+//    UILabel *positionLabel = [[UILabel alloc] initWithFrame:CGRectMake(263,0,30,21)];
+//    positionLabel.text = @"Pos";
+//    positionLabel.textAlignment = NSTextAlignmentLeft;
+    UIButton *position = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    position.frame = CGRectMake(263, 0, 30, 21);
+    [position setTitle:@"Pos" forState:UIControlStateNormal];
+    [position setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    position.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [position addTarget:self action:@selector(sortPlayersByPosition) forControlEvents:UIControlEventTouchDown];
+    
+    [view addSubview:number];
+    [view addSubview:name];
+    [view addSubview:year];
+    [view addSubview:height];
+    [view addSubview:weight];
+    [view addSubview:position];
+    
+    return view;
+}
+
+- (void)populateTable
+{
     NSString *school;
     NSString *sport;
     
@@ -164,76 +260,136 @@
     [self.rosterTable reloadData]; //optional only if the data is loaded after the view
 }
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"Error: %@", error);
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-}
-
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+- (void)sortPlayersByNumber
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 21)];
-    view.backgroundColor = [UIColor whiteColor];
-    view.userInteractionEnabled = YES;
+    [indicator startAnimating];
     
-//    UILabel *numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(20,0,15,21)];
-//    numberLabel.text = @"#";
-//    numberLabel.textAlignment = NSTextAlignmentLeft;
-    UIButton *number = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    number.frame = CGRectMake(20, 0, 15, 21);
-    [number setTitle:@"#" forState:UIControlStateNormal];
-    [number setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    number.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//    UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(42,0,90,21)];
-//    nameLabel.text = @"Name";
-//    nameLabel.textAlignment = NSTextAlignmentLeft;
-    UIButton *name = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    name.frame = CGRectMake(42, 0, 90, 21);
-    [name setTitle:@"Name" forState:UIControlStateNormal];
-    [name setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    name.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//    UILabel *yearLabel = [[UILabel alloc] initWithFrame:CGRectMake(132,0,40,21)];
-//    yearLabel.text = @"Year";
-//    yearLabel.textAlignment = NSTextAlignmentLeft;
-    UIButton *year = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    year.frame = CGRectMake(132, 0, 40, 21);
-    [year setTitle:@"Year" forState:UIControlStateNormal];
-    [year setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    year.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//    UILabel *heightLabel = [[UILabel alloc] initWithFrame:CGRectMake(190,0,30,21)];
-//    heightLabel.text = @"Ht.";
-//    heightLabel.textAlignment = NSTextAlignmentLeft;
-    UIButton *height = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    height.frame = CGRectMake(190, 0, 30, 21);
-    [height setTitle:@"Ht." forState:UIControlStateNormal];
-    [height setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    height.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//    UILabel *weightLabel = [[UILabel alloc] initWithFrame:CGRectMake(227,0,30,21)];
-//    weightLabel.text = @"Wt.";
-//    weightLabel.textAlignment = NSTextAlignmentLeft;
-    UIButton *weight = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    weight.frame = CGRectMake(227, 0, 30, 21);
-    [weight setTitle:@"Wt." forState:UIControlStateNormal];
-    [weight setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    weight.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//    UILabel *positionLabel = [[UILabel alloc] initWithFrame:CGRectMake(263,0,30,21)];
-//    positionLabel.text = @"Pos";
-//    positionLabel.textAlignment = NSTextAlignmentLeft;
-    UIButton *position = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    position.frame = CGRectMake(263, 0, 30, 21);
-    [position setTitle:@"Pos" forState:UIControlStateNormal];
-    [position setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    position.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    if (numberPressed)
+    {
+        // Possible sorting solution
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Number"  ascending:NO];
+        players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+        numberPressed = FALSE;
+    }
+    else
+    {
+        // Possible sorting solution
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Number"  ascending:YES];
+        players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+        numberPressed = TRUE;
+    }
     
-    [view addSubview:number];
-    [view addSubview:name];
-    [view addSubview:year];
-    [view addSubview:height];
-    [view addSubview:weight];
-    [view addSubview:position];
+    [self populateTable];
+}
+
+- (void)sortPlayersByName
+{
+    [indicator startAnimating];
     
-    return view;
+    if (namePressed)
+    {
+        // Possible sorting solution
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"LastName"  ascending:NO];
+        players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+        namePressed = FALSE;
+    }
+    else
+    {
+        // Possible sorting solution
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"LastName"  ascending:YES];
+        players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+        namePressed = TRUE;
+    }
+    
+    [self populateTable];
+}
+
+- (void)sortPlayersByYear
+{
+    [indicator startAnimating];
+    
+    if (yearPressed)
+    {
+        // Possible sorting solution
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Year"  ascending:NO];
+        players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+        yearPressed = FALSE;
+    }
+    else
+    {
+        // Possible sorting solution
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Year"  ascending:YES];
+        players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+        yearPressed = TRUE;
+    }
+    
+    [self populateTable];
+}
+
+- (void)sortPlayersByHeight
+{
+    [indicator startAnimating];
+    
+    if (heightPressed)
+    {
+        // Possible sorting solution
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Height"  ascending:NO];
+        players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+        heightPressed = FALSE;
+    }
+    else
+    {
+        // Possible sorting solution
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Height"  ascending:YES];
+        players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+        heightPressed = TRUE;
+    }
+    
+    [self populateTable];
+}
+
+- (void)sortPlayersByWeight
+{
+    [indicator startAnimating];
+    
+    if (weightPressed)
+    {
+        // Possible sorting solution
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Weight"  ascending:NO];
+        players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+        weightPressed = FALSE;
+    }
+    else
+    {
+        // Possible sorting solution
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Weight"  ascending:YES];
+        players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+        weightPressed = TRUE;
+    }
+    
+    [self populateTable];
+}
+
+- (void)sortPlayersByPosition
+{
+    [indicator startAnimating];
+    
+    if (positionPressed)
+    {
+        // Possible sorting solution
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Position"  ascending:NO];
+        players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+        positionPressed = FALSE;
+    }
+    else
+    {
+        // Possible sorting solution
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Position"  ascending:YES];
+        players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
+        positionPressed = TRUE;
+    }
+    
+    [self populateTable];
 }
 
 @end
