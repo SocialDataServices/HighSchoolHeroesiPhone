@@ -141,7 +141,9 @@ static const NSString *theURL = @"http://www.sodaservices.com/HighSchoolHeroes/p
     for(NSDictionary *gameInfo in games) {
         
         Game *game = [[Game alloc] init];
-        game.date = gameInfo[@"Date"];
+        NSString *date = gameInfo[@"Date"];
+        NSArray *dateArray = [date componentsSeparatedByString:@"-"];
+        game.date = [NSString stringWithFormat:@"%@/%@", [dateArray objectAtIndex:1], [dateArray objectAtIndex:2]];
         game.location = gameInfo[@"Location"];
         game.opponent = gameInfo[@"Opponent"];
         game.score = gameInfo[@"Score"];
@@ -171,13 +173,13 @@ static const NSString *theURL = @"http://www.sodaservices.com/HighSchoolHeroes/p
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 21)];
     view.backgroundColor = [UIColor whiteColor];
     
-    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(20,0,80,21)];
+    UILabel *dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(20,0,40,21)];
     dateLabel.text = @"Date";
     dateLabel.textAlignment = NSTextAlignmentLeft;
-    UILabel *opponentLabel = [[UILabel alloc] initWithFrame:CGRectMake(100,0,130,21)];
+    UILabel *opponentLabel = [[UILabel alloc] initWithFrame:CGRectMake(60,0,184,21)];
     opponentLabel.text = @"Opponent";
     opponentLabel.textAlignment = NSTextAlignmentCenter;
-    UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(230,0,70,21)];
+    UILabel *scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(244,0,54,21)];
     scoreLabel.text = @"Score";
     scoreLabel.textAlignment = NSTextAlignmentRight;
     

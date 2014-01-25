@@ -24,6 +24,12 @@
 
 @end
 
+@interface NSString (Support)
+- (NSComparisonResult)compareNumber:(NSString *)other;
+- (NSComparisonResult)compareHeight:(NSString *)other;
+- (NSComparisonResult)compareYear:(NSString *)other;
+@end
+
 @implementation RosterViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -267,14 +273,14 @@
     if (numberPressed)
     {
         // Possible sorting solution
-        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Number"  ascending:NO];
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Number"  ascending:NO selector:@selector(compareNumber:)];
         players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
         numberPressed = FALSE;
     }
     else
     {
         // Possible sorting solution
-        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Number"  ascending:YES];
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Number"  ascending:YES selector:@selector(compareNumber:)];
         players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
         numberPressed = TRUE;
     }
@@ -311,14 +317,14 @@
     if (yearPressed)
     {
         // Possible sorting solution
-        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Year"  ascending:NO];
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Year"  ascending:NO selector:@selector(compareYear:)];
         players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
         yearPressed = FALSE;
     }
     else
     {
         // Possible sorting solution
-        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Year"  ascending:YES];
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Year"  ascending:YES selector:@selector(compareYear:)];
         players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
         yearPressed = TRUE;
     }
@@ -333,14 +339,14 @@
     if (heightPressed)
     {
         // Possible sorting solution
-        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Height"  ascending:NO];
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Height"  ascending:NO selector:@selector(compareHeight:)];
         players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
         heightPressed = FALSE;
     }
     else
     {
         // Possible sorting solution
-        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Height"  ascending:YES];
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Height"  ascending:YES selector:@selector(compareHeight:)];
         players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
         heightPressed = TRUE;
     }
@@ -355,14 +361,14 @@
     if (weightPressed)
     {
         // Possible sorting solution
-        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Weight"  ascending:NO];
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Weight"  ascending:YES];
         players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
         weightPressed = FALSE;
     }
     else
     {
         // Possible sorting solution
-        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Weight"  ascending:YES];
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"Weight"  ascending:NO];
         players = [players sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descriptor,nil]];
         weightPressed = TRUE;
     }
@@ -393,3 +399,109 @@
 }
 
 @end
+
+@implementation NSString (Support)
+
+- (NSComparisonResult)compareNumber:(NSString *)other {
+    
+    NSNumberFormatter *f1 = [[NSNumberFormatter alloc] init];
+    [f1 setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSNumber *myNumber1 = [f1 numberFromString:other];
+    
+    NSNumberFormatter *f2 = [[NSNumberFormatter alloc] init];
+    [f2 setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSNumber *myNumber2 = [f2 numberFromString:self];
+    
+    return [myNumber1 compare:myNumber2];
+}
+
+- (NSComparisonResult)compareHeight:(NSString *)other {
+    
+    NSString *otherList = other;
+    NSArray *otherListItems = [otherList componentsSeparatedByString:@"-"];
+    
+    NSString *selfList = self;
+    NSArray *selfListItems = [selfList componentsSeparatedByString:@"-"];
+    
+    NSInteger feet1 = [[selfListItems objectAtIndex:0] integerValue];
+    NSInteger inches1 = [[selfListItems objectAtIndex:1] integerValue];
+    
+    NSInteger feet2 = [[otherListItems objectAtIndex:0] integerValue];
+    NSInteger inches2 = [[otherListItems objectAtIndex:1] integerValue];
+    
+    if (feet1 > feet2)
+    {
+        return NSOrderedAscending;
+    }
+    else if (feet1 < feet2)
+    {
+        return NSOrderedDescending;
+    }
+    else
+    {
+        if (inches1 > inches2)
+        {
+            return NSOrderedAscending;
+        }
+        else if (inches1 < inches2)
+        {
+            return NSOrderedDescending;
+        }
+        else {
+            return NSOrderedSame;
+        }
+    }
+    
+}
+
+- (NSComparisonResult)compareYear:(NSString *)other
+{
+    
+    if ([other isEqualToString:@"Fr."])
+    {
+        return NSOrderedAscending;
+    }
+    else if ([other isEqualToString:@"Sr."])
+    {
+        return NSOrderedDescending;
+    }
+    else if ([other isEqualToString:@"So."] && [self isEqualToString:@"Fr."])
+    {
+        return NSOrderedDescending;
+    }
+    else if ([other isEqualToString:@"So."] && [self isEqualToString:@"So."])
+    {
+        return NSOrderedSame;
+    }
+    else if ([other isEqualToString:@"So."] && [self isEqualToString:@"Jr."])
+    {
+        return NSOrderedAscending;
+    }
+    else if ([other isEqualToString:@"So."] && [self isEqualToString:@"Sr."])
+    {
+        return NSOrderedAscending;
+    }
+    else if ([other isEqualToString:@"Jr."] && [self isEqualToString:@"Fr."])
+    {
+        return NSOrderedDescending;
+    }
+    else if ([other isEqualToString:@"Jr."] && [self isEqualToString:@"So."])
+    {
+        return NSOrderedDescending;
+    }
+    else if ([other isEqualToString:@"Jr."] && [self isEqualToString:@"Jr."])
+    {
+        return NSOrderedSame;
+    }
+    else if ([other isEqualToString:@"Jr."] && [self isEqualToString:@"Sr."])
+    {
+        return NSOrderedAscending;
+    }
+    else
+    {
+        return NSOrderedSame;
+    }
+}
+
+@end
+
