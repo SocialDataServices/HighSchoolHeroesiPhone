@@ -9,6 +9,7 @@
 #import "PlayerCell.h"
 #import "Player.h"
 #import "RosterViewController.h"
+#import "PlayerInfoViewController.h"
 
 @interface RosterViewController () {
     
@@ -44,6 +45,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+//    self.navigationController.navigationBar.hidden = YES;
     
     indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     indicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
@@ -260,7 +263,7 @@
         [playersTemp addObject:player];
     }
     self.schoolLabel.text = school;
-    self.rosterLabel.text = [NSString stringWithFormat:@"%@ Roster", sport];
+    self.rosterLabel.text = [NSString stringWithFormat:@"%@", sport];
     self.roster = playersTemp;
     [indicator stopAnimating];
     [self.rosterTable reloadData]; //optional only if the data is loaded after the view
@@ -396,6 +399,21 @@
     }
     
     [self populateTable];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"playerInfo"]) {
+        NSIndexPath *indexPath = [self.rosterTable indexPathForSelectedRow];
+        PlayerInfoViewController *playerInfo = segue.destinationViewController;
+        Player *player = [self.roster objectAtIndex:indexPath.row];
+        //NSLog(@"Last Name: %@. First Name: %@.", player.lastName, player.firstName);
+        playerInfo.playerName = [NSString stringWithFormat:@"%@, %@", player.lastName, player.firstName];
+        playerInfo.playerNumber = player.number;
+        playerInfo.playerYear = player.year;
+        playerInfo.playerHeight = player.height;
+        playerInfo.playerWeight = player.weight;
+        playerInfo.playerPosition = player.position;
+    }
 }
 
 @end

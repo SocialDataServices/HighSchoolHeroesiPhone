@@ -26,7 +26,6 @@ static const NSString *theURL = @"http://www.sodaservices.com/HighSchoolHeroes/p
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
     }
     return self;
 }
@@ -34,6 +33,14 @@ static const NSString *theURL = @"http://www.sodaservices.com/HighSchoolHeroes/p
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    if (standardUserDefaults) {
+        [standardUserDefaults setObject:@"yes" forKey:@"firstLaunch"];
+        [standardUserDefaults synchronize];
+    }
+    
+//    self.navigationController.navigationBar.hidden = YES;
     
     self.schedule = [[NSArray alloc] init];
     
@@ -155,7 +162,7 @@ static const NSString *theURL = @"http://www.sodaservices.com/HighSchoolHeroes/p
     }
     
     self.schoolLabel.text = school;
-    self.scheduleLabel.text = [NSString stringWithFormat:@"%@ Schedule", sport];
+    self.scheduleLabel.text = [NSString stringWithFormat:@"%@", sport];
     self.schedule = gamesTemp;
     [indicator stopAnimating];
     [self.scheduleTable reloadData]; //optional only if the data is loaded after the view
