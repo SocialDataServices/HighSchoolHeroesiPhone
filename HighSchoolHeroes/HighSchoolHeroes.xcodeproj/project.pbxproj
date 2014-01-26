@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		2508A8E318949C8D00D41D3E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2508A8E218949C8D00D41D3E /* MainViewController.m */; };
 		2508A8E618949DCF00D41D3E /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2508A8E518949DCF00D41D3E /* PageViewController.m */; };
-		2508A8EC1894B4F600D41D3E /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2508A8EB1894B4F600D41D3E /* TabBarViewController.m */; };
 		2508A8EF1894BC3A00D41D3E /* PlayerInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2508A8EE1894BC3A00D41D3E /* PlayerInfoViewController.m */; };
+		251F5E691894C6D200754C4C /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 251F5E681894C6D200754C4C /* TabBarViewController.m */; };
 		253E7C5A1889E114006EB1CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253E7C591889E114006EB1CF /* Foundation.framework */; };
 		253E7C5C1889E114006EB1CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253E7C5B1889E114006EB1CF /* CoreGraphics.framework */; };
 		253E7C5E1889E114006EB1CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253E7C5D1889E114006EB1CF /* UIKit.framework */; };
@@ -47,10 +47,10 @@
 		2508A8E218949C8D00D41D3E /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		2508A8E418949DCF00D41D3E /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		2508A8E518949DCF00D41D3E /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
-		2508A8EA1894B4F600D41D3E /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
-		2508A8EB1894B4F600D41D3E /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		2508A8ED1894BC3A00D41D3E /* PlayerInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInfoViewController.h; sourceTree = "<group>"; };
 		2508A8EE1894BC3A00D41D3E /* PlayerInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInfoViewController.m; sourceTree = "<group>"; };
+		251F5E671894C6D200754C4C /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		251F5E681894C6D200754C4C /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
 		253E7C561889E114006EB1CF /* HighSchoolHeroes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HighSchoolHeroes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		253E7C591889E114006EB1CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		253E7C5B1889E114006EB1CF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -109,8 +109,6 @@
 		253E7C4D1889E114006EB1CF = {
 			isa = PBXGroup;
 			children = (
-				2508A8EA1894B4F600D41D3E /* TabBarViewController.h */,
-				2508A8EB1894B4F600D41D3E /* TabBarViewController.m */,
 				253E7C5F1889E114006EB1CF /* HighSchoolHeroes */,
 				253E7C811889E114006EB1CF /* HighSchoolHeroesTests */,
 				253E7C581889E114006EB1CF /* Frameworks */,
@@ -141,6 +139,8 @@
 		253E7C5F1889E114006EB1CF /* HighSchoolHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				251F5E671894C6D200754C4C /* TabBarViewController.h */,
+				251F5E681894C6D200754C4C /* TabBarViewController.m */,
 				255FDE8C1889EF4300F6F834 /* Model */,
 				2558443E188CC49B007BDD45 /* PlayerCell.h */,
 				2558443F188CC49B007BDD45 /* PlayerCell.m */,
@@ -306,11 +306,11 @@
 				255FDE8B1889EE0800F6F834 /* GameCell.m in Sources */,
 				25584440188CC49B007BDD45 /* PlayerCell.m in Sources */,
 				2508A8E618949DCF00D41D3E /* PageViewController.m in Sources */,
+				251F5E691894C6D200754C4C /* TabBarViewController.m in Sources */,
 				253E7C6A1889E114006EB1CF /* AppDelegate.m in Sources */,
 				2508A8EF1894BC3A00D41D3E /* PlayerInfoViewController.m in Sources */,
 				2508A8E318949C8D00D41D3E /* MainViewController.m in Sources */,
 				2558443A188CBB84007BDD45 /* ScheduleViewController.m in Sources */,
-				2508A8EC1894B4F600D41D3E /* TabBarViewController.m in Sources */,
 				2558443D188CC058007BDD45 /* RosterViewController.m in Sources */,
 				255FDE8F1889EF7300F6F834 /* Game.m in Sources */,
 				253E7C661889E114006EB1CF /* main.m in Sources */,
