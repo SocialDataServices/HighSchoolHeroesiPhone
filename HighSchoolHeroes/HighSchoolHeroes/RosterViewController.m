@@ -21,6 +21,7 @@
     BOOL heightPressed;
     BOOL weightPressed;
     BOOL positionPressed;
+    NSMutableData *responseData;
 }
 
 @end
@@ -39,6 +40,7 @@
     if (self) {
         
     }
+    
     return self;
 }
 
@@ -68,6 +70,8 @@
     heightPressed = FALSE;
     weightPressed = FALSE;
     positionPressed = FALSE;
+    
+    responseData = [[NSMutableData alloc] init];
     
     NSURL *authUrl = [[NSURL alloc] initWithString:@"http://www.sodaservices.com/HighSchoolHeroes/php/getRoster.php"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:authUrl];
@@ -142,17 +146,9 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)d {
     
-    
-    NSError *error = nil;
-    players = [NSJSONSerialization JSONObjectWithData:d options:kNilOptions error:&error];
-    
-//    if (error != nil) {
-//        NSLog(@"Error parsing JSON.");
-//    }
-//    else {
-//        NSLog(@"Array: %@", players);
-//    }
-    [self populateTable];
+    [responseData appendData:d];
+//    if (responseData != nil)
+//        NSLog(@"Data: %@", responseData);
     
 }
 
@@ -161,6 +157,18 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    
+    NSError *error = nil;
+    players = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
+    
+//    if (error != nil)
+//        NSLog(@"Error: %@", error);
+//    else
+//        NSLog(@"Array: %@", players);
+    
+    
+    [self populateTable];
+    
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
