@@ -27,25 +27,13 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    //[self resetDefaults];
+    [self resetDefaults];
     
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     
     //If First Launch
     if ([standardUserDefaults objectForKey:@"firstLaunch"]) {
         
-        
-        //        ScheduleViewController *detailViewController = [[ScheduleViewController alloc] init];
-        //
-        //        //detailViewController.firstString = firstString;
-        //        // ...
-        //        // Pass the selected object to the new view controller.
-        //
-        //        [self.navigationController pushViewController:detailViewController animated:YES];
-        
-        //TabBarViewController *tabBar = [[TabBarViewController alloc] init];
-        
-        //[self.navigationController pushViewController:tabBar animated:NO];
         [self performSegueWithIdentifier:@"toTabBar" sender:self];
         
     }
@@ -58,6 +46,7 @@
     
     [self.getStartedButton setEnabled:NO];
 	
+    // The tutorial information that we will need to change.
     _pageTitles = @[@"Over 200 Tips and Tricks", @"Discover Hidden Features", @"Bookmark Favorite Tip", @"Free Regular Update"];
     _pageImages = @[@"page1", @"page2", @"page3", @"page4", @"page5"];
     
