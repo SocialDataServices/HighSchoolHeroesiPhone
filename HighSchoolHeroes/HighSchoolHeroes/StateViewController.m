@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 Randy Collier. All rights reserved.
 //
 
-#import "MyTeamsViewController.h"
+#import "StateViewController.h"
 #import "CityViewController.h"
 
-@interface MyTeamsViewController () {
+@interface StateViewController () {
     NSMutableData *responseData;
 }
 
 @end
 
-@implementation MyTeamsViewController
+@implementation StateViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

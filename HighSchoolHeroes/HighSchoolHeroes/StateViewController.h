@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyTeamsViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UITabBarDelegate>
+@interface StateViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UITabBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *selectState;
 @property (weak, nonatomic) IBOutlet UILabel *stateLabel;

@@ -384,10 +384,10 @@
             </objects>
             <point key="canvasLocation" x="-445" y="321"/>
         </scene>
-        <!--My Teams View Controller - State-->
+        <!--State View Controller - State-->
         <scene sceneID="Khy-Y8-6U3">
             <objects>
-                <viewController id="trE-mh-g4c" customClass="MyTeamsViewController" sceneMemberID="viewController">
+                <viewController id="trE-mh-g4c" customClass="StateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Oyb-zb-c1V"/>
                         <viewControllerLayoutGuide type="bottom" id="Eu9-2D-Uzo"/>
