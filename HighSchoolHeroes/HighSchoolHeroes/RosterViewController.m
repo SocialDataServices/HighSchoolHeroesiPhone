@@ -47,7 +47,11 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    [self getData];
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (delegate.dataHasChangedForRoster)
+    {
+        [self getData];
+    }
 }
 
 -(void)getData
@@ -58,6 +62,7 @@
     self.school = delegate.school;
     self.sport = delegate.sport;
     self.sex = delegate.sex;
+    delegate.dataHasChangedForRoster = NO;
     
     responseData = [[NSMutableData alloc] init];
     

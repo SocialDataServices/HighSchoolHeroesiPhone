@@ -152,6 +152,8 @@ numberOfRowsInComponent:(NSInteger)component
     delegate.school = self.schoolLabel.text;
     delegate.sport = @"Football";
     delegate.sex = @"0";
+    delegate.dataHasChangedForRoster = YES;
+    delegate.dataHasChangedForSchedule = YES;
     
     self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];
 }

@@ -31,7 +31,11 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self getData];
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (delegate.dataHasChangedForSchedule)
+    {
+        [self getData];
+    }
 }
 
 -(void)getData
@@ -42,6 +46,7 @@
     self.school = delegate.school;
     self.sport = delegate.sport;
     self.sex = delegate.sex;
+    delegate.dataHasChangedForSchedule = NO;
     
     NSURL *authUrl = [[NSURL alloc] initWithString:@"http://www.sodaservices.com/HighSchoolHeroes/php/getSchedule.php"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:authUrl];
