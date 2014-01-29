@@ -30,6 +30,9 @@
 		25584443188CC691007BDD45 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 25584442188CC691007BDD45 /* Player.m */; };
 		255FDE8B1889EE0800F6F834 /* GameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 255FDE8A1889EE0800F6F834 /* GameCell.m */; };
 		255FDE8F1889EF7300F6F834 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 255FDE8E1889EF7300F6F834 /* Game.m */; };
+		2571AAD71898955400D05F7D /* MyTeamsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2571AAD61898955400D05F7D /* MyTeamsViewController.m */; };
+		2571AADD1898A78500D05F7D /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2571AADC1898A78500D05F7D /* CityViewController.m */; };
+		2571AAE01898B50F00D05F7D /* SchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2571AADF1898B50F00D05F7D /* SchoolViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,12 @@
 		255FDE8A1889EE0800F6F834 /* GameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCell.m; sourceTree = "<group>"; };
 		255FDE8D1889EF7300F6F834 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = Model/Game.h; sourceTree = "<group>"; };
 		255FDE8E1889EF7300F6F834 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = Model/Game.m; sourceTree = "<group>"; };
+		2571AAD51898955400D05F7D /* MyTeamsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTeamsViewController.h; sourceTree = "<group>"; };
+		2571AAD61898955400D05F7D /* MyTeamsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTeamsViewController.m; sourceTree = "<group>"; };
+		2571AADB1898A78500D05F7D /* CityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
+		2571AADC1898A78500D05F7D /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
+		2571AADE1898B50F00D05F7D /* SchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolViewController.h; sourceTree = "<group>"; };
+		2571AADF1898B50F00D05F7D /* SchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +158,12 @@
 				253E7C681889E114006EB1CF /* AppDelegate.h */,
 				253E7C691889E114006EB1CF /* AppDelegate.m */,
 				253E7C6B1889E114006EB1CF /* Main.storyboard */,
+				2571AADB1898A78500D05F7D /* CityViewController.h */,
+				2571AADC1898A78500D05F7D /* CityViewController.m */,
+				2571AADE1898B50F00D05F7D /* SchoolViewController.h */,
+				2571AADF1898B50F00D05F7D /* SchoolViewController.m */,
+				2571AAD51898955400D05F7D /* MyTeamsViewController.h */,
+				2571AAD61898955400D05F7D /* MyTeamsViewController.m */,
 				2508A8E418949DCF00D41D3E /* PageViewController.h */,
 				2508A8E518949DCF00D41D3E /* PageViewController.m */,
 				2508A8E118949C8D00D41D3E /* MainViewController.h */,
@@ -302,8 +317,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2571AAD71898955400D05F7D /* MyTeamsViewController.m in Sources */,
 				25584443188CC691007BDD45 /* Player.m in Sources */,
 				255FDE8B1889EE0800F6F834 /* GameCell.m in Sources */,
+				2571AAE01898B50F00D05F7D /* SchoolViewController.m in Sources */,
+				2571AADD1898A78500D05F7D /* CityViewController.m in Sources */,
 				25584440188CC49B007BDD45 /* PlayerCell.m in Sources */,
 				2508A8E618949DCF00D41D3E /* PageViewController.m in Sources */,
 				251F5E691894C6D200754C4C /* TabBarViewController.m in Sources */,

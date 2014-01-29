@@ -10,6 +10,7 @@
 #import "Player.h"
 #import "RosterViewController.h"
 #import "PlayerInfoViewController.h"
+#import "AppDelegate.h"
 
 @interface RosterViewController () {
     
@@ -44,6 +45,33 @@
     return self;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self getData];
+}
+
+-(void)getData
+{
+    [indicator startAnimating];
+    
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.school = delegate.school;
+    self.sport = delegate.sport;
+    self.sex = delegate.sex;
+    
+    responseData = [[NSMutableData alloc] init];
+    
+    NSURL *authUrl = [[NSURL alloc] initWithString:@"http://www.sodaservices.com/HighSchoolHeroes/php/getRoster.php"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:authUrl];
+    [request setHTTPMethod:@"POST"];
+    NSString * parameters = [NSString stringWithFormat:@"school=%@&sport=%@&sex=%@", self.school, self.sport, self.sex];
+    NSData *requestData = [NSData dataWithBytes:[parameters UTF8String] length:[parameters length]];
+    [request setHTTPBody:requestData];
+    [request setTimeoutInterval:15.0];
+    NSURLConnection * connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [connection start];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -60,13 +88,9 @@
     [self.view addSubview:indicator];
     [indicator bringSubviewToFront:self.view];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
-    [indicator startAnimating];
+    
     
     self.roster = [[NSArray alloc] init];
-    
-    self.school = @"Oxford High School";
-    self.sport = @"Football";
-    self.sex = @"0";
     
     numberPressed = FALSE;
     namePressed = FALSE;
@@ -74,18 +98,6 @@
     heightPressed = FALSE;
     weightPressed = FALSE;
     positionPressed = FALSE;
-    
-    responseData = [[NSMutableData alloc] init];
-    
-    NSURL *authUrl = [[NSURL alloc] initWithString:@"http://www.sodaservices.com/HighSchoolHeroes/php/getRoster.php"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:authUrl];
-    [request setHTTPMethod:@"POST"];
-    NSString * parameters = [NSString stringWithFormat:@"school=%@&sport=%@&sex=%@", self.school, self.sport, self.sex];
-    NSData *requestData = [NSData dataWithBytes:[parameters UTF8String] length:[parameters length]];
-    [request setHTTPBody:requestData];
-    [request setTimeoutInterval:15.0];
-    NSURLConnection * connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [connection start];
     
 //    Player *player1 = [[Player alloc] initWithNumber:@"1" WithLastName:@"Collier" WithFirstName:@"Randy" WithHeight:@"6-0" WithWeight:@"230" WithYear:@"Senior" WithPosition:@"QB"];
 //    Player *player2 = [[Player alloc] initWithNumber:@"2" WithLastName:@"Collier" WithFirstName:@"Andrew" WithHeight:@"5-11" WithWeight:@"155" WithYear:@"Sophomore" WithPosition:@"HB"];

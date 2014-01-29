@@ -9,6 +9,7 @@
 #import "Game.h"
 #import "GameCell.h"
 #import "ScheduleViewController.h"
+#import "AppDelegate.h"
 
 @interface ScheduleViewController () {
     
@@ -28,9 +29,36 @@
     return self;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self getData];
+}
+
+-(void)getData
+{
+    [indicator startAnimating];
+    
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.school = delegate.school;
+    self.sport = delegate.sport;
+    self.sex = delegate.sex;
+    
+    NSURL *authUrl = [[NSURL alloc] initWithString:@"http://www.sodaservices.com/HighSchoolHeroes/php/getSchedule.php"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:authUrl];
+    [request setHTTPMethod:@"POST"];
+    NSString * parameters = [NSString stringWithFormat:@"school=%@&sport=%@&sex=%@", self.school, self.sport, self.sex];
+    NSData *requestData = [NSData dataWithBytes:[parameters UTF8String] length:[parameters length]];
+    [request setHTTPBody:requestData];
+    [request setTimeoutInterval:15.0];
+    NSURLConnection * connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [connection start];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
                                                   forBarMetrics:UIBarMetricsDefault];
@@ -48,27 +76,13 @@
     
     self.schedule = [[NSArray alloc] init];
     
-    self.school = @"Oxford High School";
-    self.sport = @"Football";
-    self.sex = @"0";
-    
     indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     indicator.frame = CGRectMake(0.0, 0.0, 40.0, 40.0);
     indicator.center = self.view.center;
     [self.view addSubview:indicator];
     [indicator bringSubviewToFront:self.view];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
-    [indicator startAnimating];
     
-    NSURL *authUrl = [[NSURL alloc] initWithString:@"http://www.sodaservices.com/HighSchoolHeroes/php/getSchedule.php"];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:authUrl];
-    [request setHTTPMethod:@"POST"];
-    NSString * parameters = [NSString stringWithFormat:@"school=%@&sport=%@&sex=%@", self.school, self.sport, self.sex];
-    NSData *requestData = [NSData dataWithBytes:[parameters UTF8String] length:[parameters length]];
-    [request setHTTPBody:requestData];
-    [request setTimeoutInterval:15.0];
-    NSURLConnection * connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    [connection start];
 	
 //    Game *game1 = [[Game alloc] initOnDate:@"2013-08-15" AgainstOpponent:@"Tupelo" WithScore:@"34-85" AtLocation:@"Home"];
 //    Game *game2 = [[Game alloc] initOnDate:@"2013-08-22" AgainstOpponent:@"Shannon" WithScore:@"67-23" AtLocation:@"Home"];

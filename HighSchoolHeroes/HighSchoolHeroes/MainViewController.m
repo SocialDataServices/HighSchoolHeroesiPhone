@@ -27,7 +27,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self resetDefaults];
+    //[self resetDefaults];
     
     NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
     
