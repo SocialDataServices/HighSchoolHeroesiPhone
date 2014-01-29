@@ -384,7 +384,7 @@
             </objects>
             <point key="canvasLocation" x="-445" y="321"/>
         </scene>
-        <!--My Schools View Controller - My Teams-->
+        <!--My Schools View Controller - My Schools-->
         <scene sceneID="BU9-OS-ekr">
             <objects>
                 <viewController id="tYv-qm-gc2" customClass="MySchoolsViewController" sceneMemberID="viewController">
@@ -418,7 +418,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="325" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lafayette County High School" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfC-a4-LyT">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfC-a4-LyT">
                                                     <rect key="frame" x="20" y="11" width="305" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -439,7 +439,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Teams" id="4zH-iy-X0i"/>
+                    <navigationItem key="navigationItem" title="My Schools" id="4zH-iy-X0i"/>
                     <connections>
                         <outlet property="schoolsTableView" destination="wHs-IM-xsD" id="4J9-Ab-C4R"/>
                     </connections>
@@ -662,11 +662,11 @@
             </objects>
             <point key="canvasLocation" x="1345" y="377"/>
         </scene>
-        <!--Navigation Controller - My Teams-->
+        <!--Navigation Controller - My Schools-->
         <scene sceneID="EDj-2Z-A4a">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wab-6X-l38" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Teams" id="HVc-7y-R34">
+                    <tabBarItem key="tabBarItem" title="My Schools" id="HVc-7y-R34">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-15"/>
                     </tabBarItem>
                     <toolbarItems/>
