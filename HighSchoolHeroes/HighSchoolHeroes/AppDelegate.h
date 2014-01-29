@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *school;
 @property (nonatomic, strong) NSString *sport;
 @property (nonatomic, strong) NSString *sex;
+@property (nonatomic, strong) NSMutableArray *mySchools;
 @property (nonatomic) BOOL dataHasChangedForSchedule;
 @property (nonatomic) BOOL dataHasChangedForRoster;
 

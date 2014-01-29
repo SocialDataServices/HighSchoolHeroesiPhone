@@ -18,7 +18,6 @@
 
 @property (strong, nonatomic) NSString *state;
 @property (strong, nonatomic) NSString *city;
-@property (strong, nonatomic) NSString *school;
-@property (strong, nonatomic) NSArray *schoolNames;
+@property (strong, nonatomic) NSArray *schools;
 
 @end

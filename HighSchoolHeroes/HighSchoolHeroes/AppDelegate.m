@@ -23,6 +23,8 @@
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"HelveticaNeue" size:25.0], NSFontAttributeName, nil]];
     
+    self.mySchools = [[NSMutableArray alloc] init];
+    
     return YES;
 }
 							

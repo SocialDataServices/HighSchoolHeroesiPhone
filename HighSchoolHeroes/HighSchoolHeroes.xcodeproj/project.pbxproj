@@ -33,6 +33,9 @@
 		2571AAD71898955400D05F7D /* StateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2571AAD61898955400D05F7D /* StateViewController.m */; };
 		2571AADD1898A78500D05F7D /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2571AADC1898A78500D05F7D /* CityViewController.m */; };
 		2571AAE01898B50F00D05F7D /* SchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2571AADF1898B50F00D05F7D /* SchoolViewController.m */; };
+		25A678191899A41F00F048CE /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A678181899A41F00F048CE /* School.m */; };
+		25A6781C1899A69600F048CE /* MySchoolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A6781B1899A69500F048CE /* MySchoolsViewController.m */; };
+		25A6781F1899AE0E00F048CE /* SchoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A6781E1899AE0E00F048CE /* SchoolCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +92,12 @@
 		2571AADC1898A78500D05F7D /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
 		2571AADE1898B50F00D05F7D /* SchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolViewController.h; sourceTree = "<group>"; };
 		2571AADF1898B50F00D05F7D /* SchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolViewController.m; sourceTree = "<group>"; };
+		25A678171899A41F00F048CE /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School.h; sourceTree = "<group>"; };
+		25A678181899A41F00F048CE /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School.m; sourceTree = "<group>"; };
+		25A6781A1899A69500F048CE /* MySchoolsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySchoolsViewController.h; sourceTree = "<group>"; };
+		25A6781B1899A69500F048CE /* MySchoolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySchoolsViewController.m; sourceTree = "<group>"; };
+		25A6781D1899AE0E00F048CE /* SchoolCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolCell.h; sourceTree = "<group>"; };
+		25A6781E1899AE0E00F048CE /* SchoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +167,10 @@
 				253E7C681889E114006EB1CF /* AppDelegate.h */,
 				253E7C691889E114006EB1CF /* AppDelegate.m */,
 				253E7C6B1889E114006EB1CF /* Main.storyboard */,
+				25A6781A1899A69500F048CE /* MySchoolsViewController.h */,
+				25A6781D1899AE0E00F048CE /* SchoolCell.h */,
+				25A6781E1899AE0E00F048CE /* SchoolCell.m */,
+				25A6781B1899A69500F048CE /* MySchoolsViewController.m */,
 				2571AADB1898A78500D05F7D /* CityViewController.h */,
 				2571AADC1898A78500D05F7D /* CityViewController.m */,
 				2571AADE1898B50F00D05F7D /* SchoolViewController.h */,
@@ -212,6 +225,8 @@
 		255FDE8C1889EF4300F6F834 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				25A678171899A41F00F048CE /* School.h */,
+				25A678181899A41F00F048CE /* School.m */,
 				25584441188CC691007BDD45 /* Player.h */,
 				25584442188CC691007BDD45 /* Player.m */,
 				255FDE8D1889EF7300F6F834 /* Game.h */,
@@ -324,12 +339,15 @@
 				2571AADD1898A78500D05F7D /* CityViewController.m in Sources */,
 				25584440188CC49B007BDD45 /* PlayerCell.m in Sources */,
 				2508A8E618949DCF00D41D3E /* PageViewController.m in Sources */,
+				25A6781F1899AE0E00F048CE /* SchoolCell.m in Sources */,
 				251F5E691894C6D200754C4C /* TabBarViewController.m in Sources */,
+				25A678191899A41F00F048CE /* School.m in Sources */,
 				253E7C6A1889E114006EB1CF /* AppDelegate.m in Sources */,
 				2508A8EF1894BC3A00D41D3E /* PlayerInfoViewController.m in Sources */,
 				2508A8E318949C8D00D41D3E /* MainViewController.m in Sources */,
 				2558443A188CBB84007BDD45 /* ScheduleViewController.m in Sources */,
 				2558443D188CC058007BDD45 /* RosterViewController.m in Sources */,
+				25A6781C1899A69600F048CE /* MySchoolsViewController.m in Sources */,
 				255FDE8F1889EF7300F6F834 /* Game.m in Sources */,
 				253E7C661889E114006EB1CF /* main.m in Sources */,
 			);

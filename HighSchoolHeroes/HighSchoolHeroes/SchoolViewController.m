@@ -9,9 +9,11 @@
 #import "SchoolViewController.h"
 #import "ScheduleViewController.h"
 #import "AppDelegate.h"
+#import "School.h"
 
 @interface SchoolViewController () {
     NSMutableData *responseData;
+    School *school;
 }
 
 @end
@@ -44,6 +46,7 @@
     self.cityLabel.text = self.city;
     
     responseData = [[NSMutableData alloc] init];
+    school = [[School alloc] init];
     
     NSURL *authUrl = [[NSURL alloc] initWithString:@"http://www.sodaservices.com/HighSchoolHeroes/php/getSchools.php"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:authUrl];
@@ -85,11 +88,17 @@
     [schoolsTemp addObject:@"Select One"];
     for(NSDictionary *schoolInfo in schools) {
         
-        NSString *school = schoolInfo[@"Name"];
+        school = [[School alloc] init];
+        school.name = schoolInfo[@"Name"];
+        school.city = schoolInfo[@"City"];
+        school.state = schoolInfo[@"State"];
+        school.zip = schoolInfo[@"ZIP"];
+        school.size = schoolInfo[@"Size"];
+        
         
         [schoolsTemp addObject:school];
     }
-    self.schoolNames = schoolsTemp;
+    self.schools = schoolsTemp;
     
     [self.selectSchools reloadAllComponents];
     
@@ -104,7 +113,7 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView
 numberOfRowsInComponent:(NSInteger)component
 {
-    return [self.schoolNames count];
+    return [self.schools count];
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
@@ -117,7 +126,8 @@ numberOfRowsInComponent:(NSInteger)component
     }
     else
     {
-        self.schoolLabel.text = [self.schoolNames objectAtIndex:row];
+        school = [self.schools objectAtIndex:row];
+        self.schoolLabel.text = school.name;
         [self.saveButton setEnabled:YES];
     }
     
@@ -136,7 +146,16 @@ numberOfRowsInComponent:(NSInteger)component
     }
     label.font = [UIFont fontWithName:@"HelveticaNeue" size:20];
     label.textAlignment = NSTextAlignmentCenter;
-    label.text = [self.schoolNames objectAtIndex:row];
+    if (row == 0)
+    {
+        label.text = [self.schools objectAtIndex:row];
+    }
+    else
+    {
+        school = [self.schools objectAtIndex:row];
+        label.text = school.name;
+    }
+    
     return label;
 }
 
@@ -154,7 +173,7 @@ numberOfRowsInComponent:(NSInteger)component
     delegate.sex = @"0";
     delegate.dataHasChangedForRoster = YES;
     delegate.dataHasChangedForSchedule = YES;
-    
+    [delegate.mySchools addObject:school];
     self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];
 }
 @end
