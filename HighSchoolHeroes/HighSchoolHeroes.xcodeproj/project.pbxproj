@@ -33,6 +33,8 @@
 		2571AAD71898955400D05F7D /* StateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2571AAD61898955400D05F7D /* StateViewController.m */; };
 		2571AADD1898A78500D05F7D /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2571AADC1898A78500D05F7D /* CityViewController.m */; };
 		2571AAE01898B50F00D05F7D /* SchoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2571AADF1898B50F00D05F7D /* SchoolViewController.m */; };
+		2572E667189AFCBC008AA8C1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2572E666189AFCBC008AA8C1 /* CoreData.framework */; };
+		2572E66A189AFD4E008AA8C1 /* HighSchoolHeroes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2572E668189AFD4E008AA8C1 /* HighSchoolHeroes.xcdatamodeld */; };
 		25A678191899A41F00F048CE /* School.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A678181899A41F00F048CE /* School.m */; };
 		25A6781C1899A69600F048CE /* MySchoolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A6781B1899A69500F048CE /* MySchoolsViewController.m */; };
 		25A6781F1899AE0E00F048CE /* SchoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A6781E1899AE0E00F048CE /* SchoolCell.m */; };
@@ -92,6 +94,8 @@
 		2571AADC1898A78500D05F7D /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
 		2571AADE1898B50F00D05F7D /* SchoolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolViewController.h; sourceTree = "<group>"; };
 		2571AADF1898B50F00D05F7D /* SchoolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolViewController.m; sourceTree = "<group>"; };
+		2572E666189AFCBC008AA8C1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		2572E669189AFD4E008AA8C1 /* HighSchoolHeroes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HighSchoolHeroes.xcdatamodel; sourceTree = "<group>"; };
 		25A678171899A41F00F048CE /* School.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = School.h; sourceTree = "<group>"; };
 		25A678181899A41F00F048CE /* School.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = School.m; sourceTree = "<group>"; };
 		25A6781A1899A69500F048CE /* MySchoolsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySchoolsViewController.h; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2572E667189AFCBC008AA8C1 /* CoreData.framework in Frameworks */,
 				253E7C5C1889E114006EB1CF /* CoreGraphics.framework in Frameworks */,
 				253E7C5E1889E114006EB1CF /* UIKit.framework in Frameworks */,
 				253E7C5A1889E114006EB1CF /* Foundation.framework in Frameworks */,
@@ -127,6 +132,7 @@
 		253E7C4D1889E114006EB1CF = {
 			isa = PBXGroup;
 			children = (
+				2572E668189AFD4E008AA8C1 /* HighSchoolHeroes.xcdatamodeld */,
 				253E7C5F1889E114006EB1CF /* HighSchoolHeroes */,
 				253E7C811889E114006EB1CF /* HighSchoolHeroesTests */,
 				253E7C581889E114006EB1CF /* Frameworks */,
@@ -146,6 +152,7 @@
 		253E7C581889E114006EB1CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2572E666189AFCBC008AA8C1 /* CoreData.framework */,
 				253E7C591889E114006EB1CF /* Foundation.framework */,
 				253E7C5B1889E114006EB1CF /* CoreGraphics.framework */,
 				253E7C5D1889E114006EB1CF /* UIKit.framework */,
@@ -343,6 +350,7 @@
 				251F5E691894C6D200754C4C /* TabBarViewController.m in Sources */,
 				25A678191899A41F00F048CE /* School.m in Sources */,
 				253E7C6A1889E114006EB1CF /* AppDelegate.m in Sources */,
+				2572E66A189AFD4E008AA8C1 /* HighSchoolHeroes.xcdatamodeld in Sources */,
 				2508A8EF1894BC3A00D41D3E /* PlayerInfoViewController.m in Sources */,
 				2508A8E318949C8D00D41D3E /* MainViewController.m in Sources */,
 				2558443A188CBB84007BDD45 /* ScheduleViewController.m in Sources */,
@@ -572,6 +580,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2572E668189AFD4E008AA8C1 /* HighSchoolHeroes.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2572E669189AFD4E008AA8C1 /* HighSchoolHeroes.xcdatamodel */,
+			);
+			currentVersion = 2572E669189AFD4E008AA8C1 /* HighSchoolHeroes.xcdatamodel */;
+			path = HighSchoolHeroes.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 253E7C4E1889E114006EB1CF /* Project object */;
 }

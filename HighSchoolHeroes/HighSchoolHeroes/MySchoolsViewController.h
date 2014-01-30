@@ -10,7 +10,7 @@
 
 @interface MySchoolsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) NSMutableArray *mySchools;
+@property (nonatomic, strong) NSArray *mySchools;
 @property (weak, nonatomic) IBOutlet UITableView *schoolsTableView;
 
 @end

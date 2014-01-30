@@ -16,6 +16,8 @@
     School *school;
 }
 
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
 @end
 
 @implementation SchoolViewController
@@ -33,6 +35,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = delegate.managedObjectContext;
     
     [self.saveButton setEnabled:NO];
     
@@ -89,6 +94,7 @@
     for(NSDictionary *schoolInfo in schools) {
         
         school = [[School alloc] init];
+        school.schoolId = schoolInfo[@"SchoolId"];
         school.name = schoolInfo[@"Name"];
         school.city = schoolInfo[@"City"];
         school.state = schoolInfo[@"State"];
@@ -141,7 +147,8 @@ numberOfRowsInComponent:(NSInteger)component
 -(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
     UILabel *label = (id)view;
-    if (!label) {
+    if (!label)
+    {
         label = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [pickerView rowSizeForComponent:component].width, [pickerView rowSizeForComponent:component].height)];
     }
     label.font = [UIFont fontWithName:@"HelveticaNeue" size:20];
@@ -173,7 +180,23 @@ numberOfRowsInComponent:(NSInteger)component
     delegate.sex = @"0";
     delegate.dataHasChangedForRoster = YES;
     delegate.dataHasChangedForSchedule = YES;
-    [delegate.mySchools addObject:school];
+    
+    School *newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"School"
+                                                     inManagedObjectContext:self.managedObjectContext];
+    
+    newEntry.schoolId = school.schoolId;
+    newEntry.name = school.name;
+    newEntry.city = school.city;
+    newEntry.state = school.state;
+    newEntry.zip = school.zip;
+    newEntry.size = school.size;
+
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
     self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];
 }
 @end

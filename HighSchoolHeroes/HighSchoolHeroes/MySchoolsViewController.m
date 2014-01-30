@@ -12,7 +12,7 @@
 #import "AppDelegate.h"
 
 @interface MySchoolsViewController ()
-
+    @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @end
 
 @implementation MySchoolsViewController
@@ -28,16 +28,18 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    
-    [self.schoolsTableView reloadData];
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    if (delegate.mySchools.count == 0)
+    // Fetching Records and saving it in "fetchedRecordsArray" object
+    self.mySchools = [delegate getMySchools];
+    
+    if (self.mySchools.count == 0)
     {
         [self.schoolsTableView setHidden:YES];
     }
     else
     {
         [self.schoolsTableView setHidden:NO];
+        [self.schoolsTableView reloadData];
     }
 }
 
@@ -45,6 +47,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = delegate.managedObjectContext;
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new]
+                                                  forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.view.backgroundColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,21 +73,18 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    return delegate.mySchools.count;
+    return self.mySchools.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     static NSString *CellIdentifier = @"schoolCell";
     SchoolCell *cell = [tableView
                         dequeueReusableCellWithIdentifier:CellIdentifier
                         forIndexPath:indexPath];
     
     // Configure the cell...
-    School *school = [delegate.mySchools objectAtIndex:indexPath.row];
+    School *school = [self.mySchools objectAtIndex:indexPath.row];
     
     cell.nameLabel.text = school.name;
     
@@ -87,8 +95,11 @@
 {
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    School *school = [delegate.mySchools objectAtIndex:indexPath.row];
+    School *school = [self.mySchools objectAtIndex:indexPath.row];
+    
     delegate.school = school.name;
+    delegate.sport = @"Football";
+    delegate.sex = @"0";
     delegate.dataHasChangedForSchedule = YES;
     delegate.dataHasChangedForRoster = YES;
     self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];

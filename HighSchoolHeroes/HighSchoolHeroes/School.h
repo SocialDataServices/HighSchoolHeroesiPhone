@@ -10,16 +10,11 @@
 
 @interface School : NSObject
 
+@property (nonatomic, strong) NSString *schoolId;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *city;
 @property (nonatomic, strong) NSString *state;
 @property (nonatomic, strong) NSString *zip;
 @property (nonatomic, strong) NSString *size;
-
-- (instancetype)initWithName:(NSString *)name
-                    WithCity:(NSString *)city
-                   WithState:(NSString *)state
-                     WithZIP:(NSString *)zip
-                    Withsize:(NSString *)size;
 
 @end
