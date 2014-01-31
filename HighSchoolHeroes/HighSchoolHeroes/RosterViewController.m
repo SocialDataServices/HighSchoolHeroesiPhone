@@ -50,8 +50,42 @@
     AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if (delegate.dataHasChangedForRoster)
     {
+        self.rosterLabel.hidden = YES;
+        self.rosterTable.hidden = YES;
+        self.schoolLabel.hidden = YES;
         [self getData];
     }
+    
+    if (self.school != nil)
+    {
+        [self showTabBar:self.tabBarController];
+    }
+}
+
+- (void) showTabBar:(UITabBarController *) tabbarcontroller
+{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    float fHeight = screenRect.size.height - 49.0;
+    
+    if(  UIDeviceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation) )
+    {
+        fHeight = screenRect.size.width - 49.0;
+    }
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.5];
+    for(UIView *view in tabbarcontroller.view.subviews)
+    {
+        if([view isKindOfClass:[UITabBar class]])
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, fHeight, view.frame.size.width, view.frame.size.height)];
+        }
+        else
+        {
+            [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, fHeight)];
+        }
+    }
+    [UIView commitAnimations];
 }
 
 -(void)getData
@@ -296,6 +330,11 @@
     self.roster = playersTemp;
     [indicator stopAnimating];
     [self.rosterTable reloadData]; //optional only if the data is loaded after the view
+    
+    [self.rosterTable scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+    self.rosterLabel.hidden = NO;
+    self.rosterTable.hidden = NO;
+    self.schoolLabel.hidden = NO;
 }
 
 - (void)sortPlayersByNumber

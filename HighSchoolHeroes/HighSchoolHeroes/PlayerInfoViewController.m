@@ -7,6 +7,7 @@
 //
 
 #import "PlayerInfoViewController.h"
+#import "AppDelegate.h"
 
 @interface PlayerInfoViewController ()
 
@@ -21,6 +22,16 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (delegate.dataHasChangedForRoster)
+    {
+        //self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:2];
+        [self.navigationController popViewControllerAnimated:NO];
+    }
 }
 
 - (void)viewDidLoad

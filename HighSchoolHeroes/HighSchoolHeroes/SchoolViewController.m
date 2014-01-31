@@ -181,20 +181,35 @@ numberOfRowsInComponent:(NSInteger)component
     delegate.dataHasChangedForRoster = YES;
     delegate.dataHasChangedForSchedule = YES;
     
-    School *newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"School"
-                                                     inManagedObjectContext:self.managedObjectContext];
+    BOOL isThere = NO;
+    NSArray *array = [delegate getMySchools];
+    for (School *object in array)
+    {
+        if ([object.schoolId isEqualToString:school.schoolId])
+        {
+            isThere = YES;
+            break;
+        }
+    }
     
-    newEntry.schoolId = school.schoolId;
-    newEntry.name = school.name;
-    newEntry.city = school.city;
-    newEntry.state = school.state;
-    newEntry.zip = school.zip;
-    newEntry.size = school.size;
-
-    
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    if (!isThere)
+    {
+        School *newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"School"
+                                                         inManagedObjectContext:self.managedObjectContext];
+        
+        newEntry.schoolId = school.schoolId;
+        newEntry.name = school.name;
+        newEntry.city = school.city;
+        newEntry.state = school.state;
+        newEntry.zip = school.zip;
+        newEntry.size = school.size;
+        
+        
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+ 
     }
     
     self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];
