@@ -114,7 +114,7 @@
     self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];
 }
 
-- (void) hideTabBar:(UITabBarController *) tabbarcontroller
+- (void)hideTabBar:(UITabBarController *) tabbarcontroller
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     
@@ -141,7 +141,7 @@
     [UIView commitAnimations];
 }
 
-- (void) showTabBar:(UITabBarController *) tabbarcontroller
+- (void)showTabBar:(UITabBarController *) tabbarcontroller
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     float fHeight = screenRect.size.height - 49.0;
@@ -165,6 +165,75 @@
         }
     }
     [UIView commitAnimations];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView *)table commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        School *school = [self.mySchools objectAtIndex:indexPath.row];
+        NSString *name = school.name;
+        NSString *soughtId = school.schoolId;
+        NSEntityDescription *productEntity = [NSEntityDescription entityForName:@"School"
+                                                         inManagedObjectContext:self.managedObjectContext];
+        NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
+        [fetch setEntity:productEntity];
+        NSPredicate *p = [NSPredicate predicateWithFormat:@"schoolId == %@", soughtId];
+        [fetch setPredicate:p];
+        //... add sorts if you want them
+        NSError *fetchError;
+        NSArray *fetchedProducts = [self.managedObjectContext executeFetchRequest:fetch error:&fetchError];
+        
+        for (NSManagedObject *product in fetchedProducts) {
+            [self.managedObjectContext deleteObject:product];
+        }
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+        AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        // Fetching Records and saving it in "fetchedRecordsArray" object
+        self.mySchools = [delegate getMySchools];
+        [self.schoolsTableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        //[self.schoolsTableView reloadData];
+        
+        self.mySchools = [delegate getMySchools];
+        
+        if ([delegate.school isEqualToString:name])
+        {
+            delegate.school = nil;
+        }
+        
+        if (self.mySchools.count == 0)
+        {
+            [self.schoolsTableView setHidden:YES];
+        }
+        else
+        {
+            [self.schoolsTableView setHidden:NO];
+        }
+        
+        if (delegate.school == nil)
+        {
+            [self hideTabBar:self.tabBarController];
+        }
+        else
+        {
+            [self showTabBar:self.tabBarController];
+        }
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] init];
+    
+    return view;
 }
 
 @end
