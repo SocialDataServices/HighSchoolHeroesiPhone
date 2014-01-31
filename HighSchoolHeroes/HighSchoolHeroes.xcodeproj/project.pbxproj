@@ -24,6 +24,11 @@
 		253E7C7E1889E114006EB1CF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 253E7C5D1889E114006EB1CF /* UIKit.framework */; };
 		253E7C861889E114006EB1CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 253E7C841889E114006EB1CF /* InfoPlist.strings */; };
 		253E7C881889E114006EB1CF /* HighSchoolHeroesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 253E7C871889E114006EB1CF /* HighSchoolHeroesTests.m */; };
+		2543C3E3189B1DF600E87E0C /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2543C3DF189B1DF600E87E0C /* page1.png */; };
+		2543C3E4189B1DF600E87E0C /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2543C3E0189B1DF600E87E0C /* page2.png */; };
+		2543C3E5189B1DF600E87E0C /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2543C3E1189B1DF600E87E0C /* page3.png */; };
+		2543C3E6189B1DF600E87E0C /* page4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2543C3E2189B1DF600E87E0C /* page4.png */; };
+		2543C3E8189B389D00E87E0C /* Storyboard35.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2543C3E7189B389D00E87E0C /* Storyboard35.storyboard */; };
 		2558443A188CBB84007BDD45 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25584439188CBB84007BDD45 /* ScheduleViewController.m */; };
 		2558443D188CC058007BDD45 /* RosterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2558443C188CC058007BDD45 /* RosterViewController.m */; };
 		25584440188CC49B007BDD45 /* PlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2558443F188CC49B007BDD45 /* PlayerCell.m */; };
@@ -76,6 +81,11 @@
 		253E7C831889E114006EB1CF /* HighSchoolHeroesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HighSchoolHeroesTests-Info.plist"; sourceTree = "<group>"; };
 		253E7C851889E114006EB1CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		253E7C871889E114006EB1CF /* HighSchoolHeroesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HighSchoolHeroesTests.m; sourceTree = "<group>"; };
+		2543C3DF189B1DF600E87E0C /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = SOURCE_ROOT; };
+		2543C3E0189B1DF600E87E0C /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = SOURCE_ROOT; };
+		2543C3E1189B1DF600E87E0C /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = SOURCE_ROOT; };
+		2543C3E2189B1DF600E87E0C /* page4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page4.png; sourceTree = SOURCE_ROOT; };
+		2543C3E7189B389D00E87E0C /* Storyboard35.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard35.storyboard; sourceTree = "<group>"; };
 		25584438188CBB84007BDD45 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
 		25584439188CBB84007BDD45 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		2558443B188CC058007BDD45 /* RosterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RosterViewController.h; sourceTree = "<group>"; };
@@ -174,6 +184,7 @@
 				253E7C681889E114006EB1CF /* AppDelegate.h */,
 				253E7C691889E114006EB1CF /* AppDelegate.m */,
 				253E7C6B1889E114006EB1CF /* Main.storyboard */,
+				2543C3E7189B389D00E87E0C /* Storyboard35.storyboard */,
 				25A6781A1899A69500F048CE /* MySchoolsViewController.h */,
 				25A6781D1899AE0E00F048CE /* SchoolCell.h */,
 				25A6781E1899AE0E00F048CE /* SchoolCell.m */,
@@ -188,6 +199,10 @@
 				2508A8E518949DCF00D41D3E /* PageViewController.m */,
 				2508A8E118949C8D00D41D3E /* MainViewController.h */,
 				2508A8E218949C8D00D41D3E /* MainViewController.m */,
+				2543C3DF189B1DF600E87E0C /* page1.png */,
+				2543C3E0189B1DF600E87E0C /* page2.png */,
+				2543C3E1189B1DF600E87E0C /* page3.png */,
+				2543C3E2189B1DF600E87E0C /* page4.png */,
 				2558443B188CC058007BDD45 /* RosterViewController.h */,
 				2558443C188CC058007BDD45 /* RosterViewController.m */,
 				2508A8ED1894BC3A00D41D3E /* PlayerInfoViewController.h */,
@@ -320,7 +335,12 @@
 			files = (
 				253E7C751889E114006EB1CF /* Images.xcassets in Resources */,
 				253E7C641889E114006EB1CF /* InfoPlist.strings in Resources */,
+				2543C3E5189B1DF600E87E0C /* page3.png in Resources */,
+				2543C3E6189B1DF600E87E0C /* page4.png in Resources */,
+				2543C3E3189B1DF600E87E0C /* page1.png in Resources */,
 				253E7C6D1889E114006EB1CF /* Main.storyboard in Resources */,
+				2543C3E4189B1DF600E87E0C /* page2.png in Resources */,
+				2543C3E8189B389D00E87E0C /* Storyboard35.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
